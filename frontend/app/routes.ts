@@ -1,7 +1,9 @@
-import { type RouteConfig, index, prefix, route } from "@react-router/dev/routes";
+import { type RouteConfig, index, layout, prefix, route } from "@react-router/dev/routes";
 
 export default [
-  index("routes/home.tsx"),
-  ...prefix("api", [route("upload", "./api/upload/aws.ts")]
-  )
+  layout("./routes/layout.tsx", [
+    index("routes/home.tsx"),
+    ...prefix("api", [route("upload", "./api/upload/aws.ts")],
+    )
+  ])
 ] satisfies RouteConfig;

@@ -8,6 +8,6 @@ export default [
   ]),
   layout("./routes/auth/layout.tsx", [
     route("sign-in", "routes/auth/sign-in.tsx"),
-    route("sign-up", "routes/auth/sing-up.tsx")
+    route("sign-up", "routes/auth/sign-up.tsx")
   ])
 ] satisfies RouteConfig;

@@ -10,7 +10,7 @@ interface IControlledInput<T extends FieldValues> extends ComponentProps<"input"
   control: Control<T, any, T>
 }
 
-export function ControlledInput<T extends FieldValues>({ control, name }: IControlledInput<T>) {
+export function ControlledInput<T extends FieldValues>({ control, name, ...props }: IControlledInput<T>) {
   return (
     <Controller
       name={name}
@@ -19,9 +19,11 @@ export function ControlledInput<T extends FieldValues>({ control, name }: IContr
         <Field>
           <FieldLabel htmlFor={field.name} > {field.name} </FieldLabel>
           <Input
+            {...props}
+            className="border-input"
             id={field.name}
           />
-          {fieldState.invalid && <FieldError> {fieldState.error?.message} </FieldError>}
+          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
         </Field>
       }
     />

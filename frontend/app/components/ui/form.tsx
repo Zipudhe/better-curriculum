@@ -13,21 +13,31 @@ interface IForm extends ComponentProps<"form"> {
   description?: string
 }
 
-export function Form({ children, title, description, actions, ...props }: IForm) {
+export function Form({ children, title, description, actions, id, ...props }: IForm) {
 
   return (
-    <Card className="w-3/4 max-w-lg p-y-4">
+    <Card className="bg-card w-3/4 max-w-lg p-y-4">
       <CardHeader>
-        <CardTitle> {title} </CardTitle>
+        <CardTitle className="text-foreground"> {title} </CardTitle>
         <CardDescription> {description} </CardDescription>
       </CardHeader>
       <CardContent>
-        <form {...props}>
+        <form id={id} {...props}>
           {children}
         </form>
         <CardAction className="p-4 flex justify-evenly w-full">
           {
-            actions?.map(({ name, ...props }) => <Button {...props}> {name} </Button>)
+            actions?.map(({ name, ...props }) =>
+              <Button
+                form={id}
+                type="submit"
+                className="bg-primary"
+                {...props}
+                key={`form_button_${name}`}
+              >
+                {name}
+              </Button>
+            )
           }
         </CardAction>
       </CardContent>

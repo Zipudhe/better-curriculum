@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react"
 import { Outlet } from "react-router"
-import { ProfileMenu } from "~/components/ProfileMenu"
+import { ProfileMenu } from "~/components/profile-menu"
 import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar"
 
 interface LayoutProps extends ComponentProps<"div"> { }

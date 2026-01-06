@@ -1,5 +1,18 @@
-import { createAuthClient } from "better-auth/react"
+import axios from 'axios'
 
-export const auth = createAuthClient({
-  baseURL: "http://localhost:3000"
+const axiosInstance = axios.create({
+  baseURL: "http://localhost:3000/api"
 })
+
+type AuthStartResponde = {
+  authURL: string
+}
+
+const getAuthUrl = () => {
+
+  return axiosInstance.get<AuthStartResponde>("/auth/start")
+}
+
+export {
+  getAuthUrl
+}

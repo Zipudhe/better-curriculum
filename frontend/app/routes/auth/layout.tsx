@@ -1,6 +1,11 @@
-import { Outlet } from "react-router"
+import type { Route } from "./+types/layout"
+import { Outlet, redirect } from "react-router"
 import AsideImage from "~/assets/auth_image.png"
 
+export const clientLoader = (args: Route.ClientLoaderArgs) => {
+  // TODO: Check if user is already logged in
+  console.log({ window })
+}
 
 export default function AuthLayout() {
 

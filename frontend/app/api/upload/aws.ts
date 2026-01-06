@@ -2,6 +2,8 @@ import type { Route } from "./+types/aws"
 import { handleRequest, route, type Router } from '@better-upload/server';
 import { aws } from '@better-upload/server/clients';
 
+// TODO: Refactor this to backend
+
 type AwsClientParams = {
   accessKeyId: string,
   secretAccessKey: string,
